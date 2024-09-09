@@ -23,7 +23,8 @@ Note: copied directly from the other assignment repo I made (thru github classro
 
 //Instructions: calculate width, height, distance, area, perimeter
 
-//this will make the variables for the points, but without making them global
+
+//this will make the points into variables without making them global
 typedef struct {
 
     int x1;
@@ -33,13 +34,14 @@ typedef struct {
 
 } Points;
 
+
     Points* getPoints(){
 
         static Points nums;
         return &nums;
     }
 
-    //note: no output because of void function
+
     void calculate_distance(){
 
         Points* nums = getPoints();
@@ -50,6 +52,7 @@ typedef struct {
         printf("\nThe distance between the two points is %.3f\n", distance);
     }
     
+
     double getDistance(){
 
         Points* nums = getPoints();
@@ -60,6 +63,7 @@ typedef struct {
         return sqrt(pow(nums->x2 - nums->x1, 2) + pow(nums->y2 - nums->y1, 2));
     }
     
+
     //perimeter calculation
     double calculate_perimeter(){
 
@@ -70,6 +74,7 @@ typedef struct {
         printf("The perimeter of the city encompassed by your request is: %.3f \n", perimeter);
     }
 
+
     //area calculation
     double calculate_area(){
 
@@ -78,6 +83,7 @@ typedef struct {
 
         printf("The area of the city encompassed by your request is: %.3f\n", area);
     }
+
 
     //width calculation
     double calculate_width(){
@@ -89,6 +95,7 @@ typedef struct {
         printf("The width of the city encompassed by your request is: %.3f\n", width);
     }
 
+
     //height calculation
     double calculate_height(){
 
@@ -98,18 +105,25 @@ typedef struct {
         printf("The height of the city encompassed by your request is: %.3f\n", height);
     }
 
+
 //main function will be used to house the defined values for the coordinate points
 int main(){
 
     Points* nums = getPoints();
-        nums->x1 = 2;
-        nums->x2 = 2;
-        nums->y1 = 1;
-        nums->y2 = 2;
+
+        printf("Enter the x1 value of the coordinates: ");
+        scanf("%d", &nums->x1); 
+        printf("Enter the x2 value of the coordinates: ");
+        scanf("%d", &nums->x2);
+        printf("Enter the y1 value of the coordinates: ");
+        scanf("%d", &nums->y1); 
+        printf("Enter the y2 value of the coordinates: ");
+        scanf("%d", &nums->y2);
+
 
     //print functions below will define what points were entered
-    printf("Point #1 entered: x1 = %d, x2 = %d\n", nums->x1, nums->x2);
-    printf("Point #2 entered: y1 = %d, y2 = %d\n", nums->y1, nums->y2);
+    printf("Point #1 entered: x1 = %d, y1 = %d\n", nums->x1, nums->y1);
+    printf("Point #2 entered: y1 = %d, x2 = %d\n", nums->x1, nums->x2);
 
     //below is where I called all of the functions we defined previously in the code :-)
 
